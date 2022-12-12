@@ -25,7 +25,7 @@ router.post('/blogs/pst', (req, res, next) => {
     }
 });
 
-//
+//To work on
 router.delete('blogs/del/:id', (req, res, next) => {
     blogs.findOneAndDelete({_id: req.params.id})
          .then((data) => res.json(data))
