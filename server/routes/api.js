@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const blogs = require(`../models/bgs`);
+const blogs = require('../models/bgs');
 
-router.get('/blogs', (req, res, next) => {
-    blogs.find({}, blogNumber)
+router.get('/blogs/gt', (req, res, next) => {
+    blogs.find({}, 'blogContent')
          .then((data) => res.json(data))
          .catch(next);
 });
 
-router.post('/blogs', (req, res, next) => {
-    if (req.body.blogDate)
+router.post('/blogs/pst', (req, res, next) => {
+    if (req.body.blogNumber)
     {
         blogs.create(req.body)
              .then((data) => res.json(data))
@@ -25,7 +25,8 @@ router.post('/blogs', (req, res, next) => {
     }
 });
 
-router.delete('/blogs/del/:id', (req, res, next) => {
+//
+router.delete('blogs/del/:id', (req, res, next) => {
     blogs.findOneAndDelete({_id: req.params.id})
          .then((data) => res.json(data))
          .catch(next);
