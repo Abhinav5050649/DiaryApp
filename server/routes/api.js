@@ -15,7 +15,7 @@ router.post('/blogs/pst', (req, res, next) => {
              .then((data) => res.json(data))
              .catch(next);
 
-        console.log(data);
+        //console.log(data);
     }
     else
     {
@@ -26,10 +26,15 @@ router.post('/blogs/pst', (req, res, next) => {
 });
 
 //To work on
-router.delete('blogs/del/:id', (req, res, next) => {
-    blogs.findOneAndDelete({_id: req.params.id})
+router.delete('/blogs/del/:id', (req, res, next) => {
+    // blogs.findOneAndDelete({_id: req.params.id})
+    //      .then((data) => res.json(data))
+    //      .catch(next);
+    blogs.findByIdAndDelete(req.params.id, req.body)
          .then((data) => res.json(data))
-         .catch(next);
+         .catch((err) => res.json({
+            error: `Error!`
+         }));
 });
 
 module.exports = router;
