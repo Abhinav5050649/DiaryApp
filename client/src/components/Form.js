@@ -13,7 +13,7 @@ export const Form = () => {
         axios.post('http://localhost:5000/api/blogs/pst', {
             blogNumber: this.blogNumber,
             blogContent: this.blogContent,
-            blogDate: this.blogDate,
+            blogDate: Date().toString(),
         })
         .then((response) => {
             console.log(response);
@@ -29,18 +29,15 @@ export const Form = () => {
 
     return(
         <>
-            {
-                //handle date input and modify form components
-            }
             <div>
                 <form onSubmit={handleSubmit} method="post"> 
                     <div className="form-group">
-                        <label>Activity Number</label>
-                        <input type="text" className="form-control" value={Num} onChange={(e) => setNum(e.target.value)} id="textFormControlInput1" placeholder="Enter Activity Number: " required={true}></input>
+                        <label>Enter Blog Number: </label>
+                        <input type="text" className="form-control" value={blogNumber} onChange={(e) => setNum(e.target.value)} id="textFormControlInput1" placeholder="Enter Activity Number: " required={true}></input>
                     </div>
                     <div className="form-group">
-                        <label>Activity Name</label>
-                        <input type="text" className="form-control" value={Name} onChange={(e) => setName(e.target.value)} id="textFormControlInput1" placeholder="Enter Name: " required={true}></input>
+                        <label>Enter blog content: </label>
+                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setName(e.target.value)} id="textFormControlInput1" placeholder="Enter Name: " required={true}></input>
                     </div>
                     
                     <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
