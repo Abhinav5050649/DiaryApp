@@ -10,7 +10,7 @@ export const delpage = (id) => {
 
     React.useEffect(() => {
         const getData = async() => {
-            const response = await axios.get('https://localhost:5000/api/blogs/gt')
+            const response = await axios.get('blogs/gt')
                 setData(response.data)
             }
             getData()
@@ -18,7 +18,7 @@ export const delpage = (id) => {
 
     const handleDelete = (id) => {
         axios 
-            .delete(`/api/todos/${id}`)
+            .delete(`blogs/del/${id}`)
             .then((res) => {
                 if (res.data)
                 {
@@ -35,9 +35,8 @@ export const delpage = (id) => {
                     data.map((item) => {
                         return (
                             <li key={item._id} onClick = {() => handleDelete(item._id)}>
-                                {item.blogDate}
-                                <br/>
-                                {item.blogContent}
+                                <label>{item.blogDate}</label>
+                                <p>{item.blogContent}</p>
                             </li>
                         );
                     })
