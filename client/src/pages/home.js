@@ -14,13 +14,14 @@ export const Home = () => {
             getData()
     }, [])
 
-    //add Display component
+    //handle update part in client and server
     const actiData = data.map(entry => {
         console.log(entry);
         return <Display
             blogNumber = {entry.blogNumber}
             blogContent = {entry.blogContent}
             blogDate = {entry.blogDate}
+            id = {entry._id}
             />
             
     })
