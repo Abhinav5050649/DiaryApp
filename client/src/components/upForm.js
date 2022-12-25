@@ -6,7 +6,7 @@ export const upForm = ({blogNumber, blogContent, blogDate, id}) => {
 
     const handleSubmit = async(id) => {
         e.preventDefault();
-        axios.put('blogs/pt/${id}', {
+        axios.put(`/blogs/pt/${id}`, {
             blogNumber: this.blogNumber,
             blogContent: this.blogContent,
             blogDate: Date().toString(),
@@ -26,7 +26,7 @@ export const upForm = ({blogNumber, blogContent, blogDate, id}) => {
                 <form onSubmit={handleSubmit} method="put"> 
                     <div className="form-group">
                         <label>Enter new blog content: </label>
-                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setName(e.target.value)} id="textFormControlInput1" placeholder="Enter Blog Content: " required={true}></input>
+                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setName(e.target.value)} id="textFormControlInput1" placeholder="Enter New Blog Content: " required={true}></input>
                     </div>
                     
                     <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>

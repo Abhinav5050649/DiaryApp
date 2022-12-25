@@ -10,8 +10,8 @@ export const NavBar = () => {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="#">Page1</a>
-                    <a class="nav-link" href="#">Page2</a>
+                    <a class="nav-link" href="/formpage">New Blog Post</a>
+                    <a class="nav-link" href="/delpage">Delete Blog Posts</a>
                 </div>
             </div>
         </nav>
