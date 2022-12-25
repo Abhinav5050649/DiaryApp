@@ -11,7 +11,7 @@ export const NavBar = () => {
                 <div class="navbar-nav">
                     <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="/formpage">New Blog Post</a>
-                    <a class="nav-link" href="/delpage">Delete Blog Posts</a>
+                    <a class="nav-link" href="/delpage">Delete Blog Post(s)</a>
                 </div>
             </div>
         </nav>
