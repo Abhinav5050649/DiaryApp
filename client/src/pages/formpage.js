@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../components/NavBar";
-import Form from "../components/Form";
+import {Navbar} from "../components/NavBar";
+import {Form} from "../components/Form";
 
-export const formpage = () => {
+export const Formpage = () => {
     return(
         <>
             <Navbar/>
@@ -10,8 +10,7 @@ export const formpage = () => {
             <Form/>
         </>
     )
-
-    //define rest of formpage after creating a form component
+    //modify form part
 }
 
-export default formpage;
+export default Formpage;

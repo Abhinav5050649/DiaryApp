@@ -1,9 +1,9 @@
 //Draft this page after a while
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from "react-router-dom"
 
-export const delpage = () => {
+export const Delpage = () => {
     const navigate = useNavigate();
 
     const [data, setData] = useState([])
@@ -48,4 +48,4 @@ export const delpage = () => {
     )
 }
 
-export default delpage;
+export default Delpage;

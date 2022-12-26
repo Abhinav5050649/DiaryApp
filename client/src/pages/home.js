@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../components/NavBar';
+import { Navbar } from '../components/NavBar';
 import axios from 'axios';
 //import Display from '../components/Display';
 
@@ -13,18 +13,6 @@ export const Home = () => {
             }
             getData()
     }, [])
-
-    //handle update part the same way handle as in delpage
-    // const actiData = data.map(entry => {
-    //     console.log(entry);
-    //     return <Display
-    //         blogNumber = {entry.blogNumber}
-    //         blogContent = {entry.blogContent}
-    //         blogDate = {entry.blogDate}
-    //         id = {entry._id}
-    //         />
-            
-    // })
     
     //handle update part
     return(

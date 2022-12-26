@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './pages/home';
-import { formpage } from './pages/formpage';
-import { delpage } from './pages/delpage';
+import { Formpage } from './pages/formpage';
+import { Delpage } from './pages/delpage';
 import {Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Home/>}></Route>
             <Route path='/formpage' element={<formpage/>}></Route>
-            <Route path='/delpage' element={<delpage/>}></Route>
+            <Route path='/delpage' element={<Delpage/>}></Route>
         </Routes>
     </div>
   );

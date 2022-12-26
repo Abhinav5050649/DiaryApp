@@ -27,7 +27,6 @@ export const updPage = () => {
     }
 
     const handleUpdate = (item) => {
-        
 
         return(
             <>
@@ -66,8 +65,7 @@ export const updPage = () => {
                             return (
                                 <li key={item._id} className="list-group-item" onClick={() => handleUpdate(item)}>
                                     <label>{item.blogDate}</label>
-                                    {//<p>{item.blogContent}</p>
-                                    }
+                                    <p>{item.blogContent}</p>
                                 </li>
                             );
                         })
