@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
-import NavBar from "../components/NavBar";
+import React from "react";
+import Navbar from "../components/NavBar";
 import Form from "../components/Form";
 
 export const formpage = () => {
     return(
         <>
-            <NavBar/>
+            <Navbar/>
             <br/>
             <Form/>
         </>

@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 export const upForm = ({blogNumber, blogContent, blogDate, id}) => {
 
+    const navigate = useNavigate();
     const handleSubmit = async(id) => {
         e.preventDefault();
         axios.put(`/blogs/pt/${id}`, {
             blogNumber: this.blogNumber,
             blogContent: this.blogContent,
-            blogDate: Date().toString(),
+            blogDate: this.blogDate
         })
         .then((response) => {
             console.log(response);
