@@ -1,7 +1,8 @@
 import React from "react";
 
 export const Navbar = () => {
-    <>
+    
+    return(
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Blogs</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +13,11 @@ export const Navbar = () => {
                     <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="/formpage">New Blog Post</a>
                     <a class="nav-link" href="/delpage">Delete Blog Post(s)</a>
+                    <a class="nav-link" href="/updpage">Update Blog Post Content</a>
                 </div>
             </div>
         </nav>
-    </>
+    )
 }
 
 export default Navbar;

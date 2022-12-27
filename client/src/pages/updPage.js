@@ -1,13 +1,16 @@
-import React from "react";
-import NavBar from "../components/NavBar";
+import React, { useState } from "react";
+import  { useNavigate }  from "react-router-dom";
+import { Navbar } from "../components/NavBar";
+import axios from "axios";
 //import upForm from '../components/upForm';
 
-export const updPage = () => {
+export const upPage = () => {
     const [data, setData] = useState([])
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         const getData = async() => {
-            const response = await axios.get(`/blogs/gt`)
+            const response = await axios.get(`http://localhost:5000/api/blogs/gt`)
                 setData(response.data)
             }
             getData()
@@ -27,7 +30,6 @@ export const updPage = () => {
     }
 
     const handleUpdate = (item) => {
-
         return(
             <>
                 <div class="modal" tabindex="-1">
@@ -40,7 +42,7 @@ export const updPage = () => {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" className="form-control" value={item.blogContent} onChange={(e) => setBlogContent(e.target.value)} placeholder="Enter Blog Content: " required={true}></input>
+                            <input type="text" className="form-control" value={item.blogContent} onChange={(e) => item.blogContent = e.target.value} placeholder="Enter Blog Content: " required={true}></input>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={() => handleClickBasedUpdate(item)}>Close</button>
@@ -56,7 +58,7 @@ export const updPage = () => {
 
     return(
         <>
-            <NavBar/>
+            <Navbar/>
             <br/>
              <div>
                 <ul className="list-group">
@@ -77,3 +79,5 @@ export const updPage = () => {
         </>
     )
 }
+
+export default upPage;
