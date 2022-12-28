@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom"
+import Navbar from '../components/NavBar';
 
 export const Delpage = () => {
     const navigate = useNavigate();
@@ -16,9 +17,9 @@ export const Delpage = () => {
             getData()
     }, [])
 
-    const handleDelete = (id) => {
+    const handleDelete = (item) => {
         axios 
-            .delete(`http://localhost:5000/api/blogs/del/${id}`)
+            .delete(`http://localhost:5000/api/blogs/del/${item._id}`)
             .then((res) => {
                 if (res.data)
                 {
@@ -30,12 +31,13 @@ export const Delpage = () => {
 
     return(
         <>
+            <Navbar/>
             <ul>
                 {data && data.length > 0 ? (
                     data.map((item) => {
                         return (
-                            <li key={item._id} onClick = {() => handleDelete(item._id)}>
-                                <label>{item.blogDate}</label>
+                            <li key={item._id} onClick = {() => handleDelete(item)}>
+                                <p>{item.blogDate}</p>
                                 <p>{item.blogContent}</p>
                             </li>
                         );

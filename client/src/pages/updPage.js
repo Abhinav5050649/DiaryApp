@@ -4,7 +4,7 @@ import { Navbar } from "../components/NavBar";
 import axios from "axios";
 //import upForm from '../components/upForm';
 
-export const upPage = () => {
+export const UpPage = () => {
     const [data, setData] = useState([])
     const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export const upPage = () => {
     const handleClickBasedUpdate = (item) => {
         
         axios 
-            .put(`/blogs/pt/${item._id}`, item)
+            .put(`/blogs/pt/${item._id}`, item.blogContent)
             .then((res) => {
                 if (res.data)
                 {
@@ -80,4 +80,4 @@ export const upPage = () => {
     )
 }
 
-export default upPage;
+export default UpPage;

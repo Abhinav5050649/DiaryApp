@@ -25,7 +25,7 @@ export const Home = () => {
                         data.map((item) => {
                             return (
                                 <li key={item._id} className="list-group-item">
-                                    <label>{item.blogDate}</label>
+                                    <p>{item._blogDate}</p>
                                     <p>{item.blogContent}</p>
                                 </li>
                             );
