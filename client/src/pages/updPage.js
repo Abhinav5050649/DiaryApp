@@ -4,6 +4,7 @@ import { Navbar } from "../components/NavBar";
 import axios from "axios";
 //import upForm from '../components/upForm';
 
+//make changes here to make page responsive
 export const UpPage = () => {
     const [data, setData] = useState([])
     const navigate = useNavigate();

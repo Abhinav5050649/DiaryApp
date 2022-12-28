@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom"
 import Navbar from '../components/NavBar';
 
+//make changes here to make page responsive
 export const Delpage = () => {
     const navigate = useNavigate();
 
