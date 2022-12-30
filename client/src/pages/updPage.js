@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import  { useNavigate }  from "react-router-dom";
 import { Navbar } from "../components/NavBar";
 import axios from "axios";
-//import upForm from '../components/upForm';
+import { UpForm } from '../components/upForm';
 
 //make changes here to make page responsive
 export const UpPage = () => {
@@ -11,48 +11,51 @@ export const UpPage = () => {
 
     React.useEffect(() => {
         const getData = async() => {
-            const response = await axios.get(`http://localhost:5000/api/blogs/gt`)
+            const response = await axios.get(`/api/blogs/gt`)
                 setData(response.data)
             }
             getData()
     }, [])
 
-    const handleClickBasedUpdate = (item) => {
+    // const handleClickBasedUpdate = (item) => {
         
-        axios 
-            .put(`/blogs/pt/${item._id}`, item.blogContent)
-            .then((res) => {
-                if (res.data)
-                {
-                    navigate("/");
-                }
-            })
-            .catch((err) => console.log(err));   
-    }
+    //     axios 
+    //         .put(`/api/blogs/pt/${item._id}`, item.blogContent)
+    //         .then((res) => {
+    //             if (res.data)
+    //             {
+    //                 navigate("/");
+    //             }
+    //         })
+    //         .catch((err) => console.log(err));   
+    // }
 
     const handleUpdate = (item) => {
+        // return(
+        //     <>
+        //         <div class="modal" tabindex="-1">
+        //             <div class="modal-dialog">
+        //                 <div class="modal-content">
+        //                 <div class="modal-header">
+        //                     <h5 class="modal-title">Update Component</h5>
+        //                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        //                     <span aria-hidden="true">&times;</span>
+        //                     </button>
+        //                 </div>
+        //                 <div class="modal-body">
+        //                     <input type="text" className="form-control" value={item.blogContent} onChange={(e) => item.blogContent = e.target.value} placeholder="Enter Blog Content: " required={true}></input>
+        //                 </div>
+        //                 <div class="modal-footer">
+        //                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={() => handleClickBasedUpdate(item)}>Close</button>
+        //                     <button type="button" class="btn btn-primary">Save changes</button>
+        //                 </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </>
+        // )
         return(
-            <>
-                <div class="modal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Update Component</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" className="form-control" value={item.blogContent} onChange={(e) => item.blogContent = e.target.value} placeholder="Enter Blog Content: " required={true}></input>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={() => handleClickBasedUpdate(item)}>Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </>
+            <UpForm blogContent={item.blogContent} id={item._id}/>
         )
      
     }

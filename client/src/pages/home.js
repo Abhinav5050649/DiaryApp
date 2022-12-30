@@ -8,7 +8,7 @@ export const Home = () => {
 
     React.useEffect(() => {
         const getData = async() => {
-            const response = await axios.get(`http://localhost:5000/api/blogs/gt`)
+            const response = await axios.get(`/api/blogs/gt`)
                 setData(response.data)
             }
             getData()

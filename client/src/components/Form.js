@@ -9,7 +9,7 @@ export const Form = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        axios.post(`http://localhost:5000/api/blogs/pst`, {
+        axios.post(`/api/blogs/pst`, {
                 blogNumber: blogNumber,
                 blogContent: blogContent,
                 blogDate: Date().toString(),
