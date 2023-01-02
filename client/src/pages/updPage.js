@@ -54,10 +54,10 @@ export const UpPage = () => {
         //         </div>
         //     </>
         // )
-        return(
-            <UpForm blogContent={item.blogContent} id={item._id}/>
-        )
-     
+        console.log("Working?")
+        
+        navigate(`/updpage/upform/:${item._id}`);
+        
     }
 
     return(
@@ -70,7 +70,6 @@ export const UpPage = () => {
                         data.map((item) => {
                             return (
                                 <li key={item._id} className="list-group-item" onClick={() => handleUpdate(item)}>
-                                    <label>{item.blogDate}</label>
                                     <p>{item.blogContent}</p>
                                 </li>
                             );
