@@ -8,25 +8,74 @@ export const UpForm = () => {
     //  const { search } = useLocation();
     //  const searchParams = new URLSearchParams(search)
     //  console.log(searchParams)
-    const location = useLocation();
-    const itemId = location.pathname.split("http://localhost:3000/updpage/upform/:");
-    const [val, setVal] = useState([])
-
+    const [data, setData] = useState([])
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const halfpath = "updpage/upform/:"
+    const lenOfhalfPath = halfpath.length + 1
+
+    const itemId = location.pathname.substring(lenOfhalfPath)
+    
+    console.log(itemId)
+    const [val, setVal] = useState([])
+    // var item = {
+    //     blogNumber: "",
+    //     blogContent: "",
+    //     blogDate: "", 
+    // };
+
+    var postBlogNumber, postBlogDate;
+
+    React.useEffect(() => {
+        const getData = async() => {
+            const response = await axios.get(`/api/blogs/gt`)
+                setData(response.data)
+            }
+            getData()
+    }, [])
+
+    for (var i = 0; i < data.length; i++)
+    {
+        if (data[i]._id === itemId)
+        {
+            postBlogDate = data[i].blogDate
+            postBlogNumber = data[i].blogNumber
+            break;
+        }
+    }
+    
     const handleSubmit = async(e) => {
         e.preventDefault();
-        const data = {
-            "blogContent": val,
+        //item.blogContent = val
+        //console.log(item)
+
+        //Jst post this
+        const item =  {
+            blogNumber: postBlogNumber,
+            blogContent: val,
+            blogDate: postBlogDate,
         }
-        console.log(data)
+        console.log(postBlogDate + "\n" + postBlogNumber)
+        console.log(item)
 
         axios
-            .put(`/api/blogs/pt/:${itemId}`, data)
+            .post(`/api/blogs/pst`, item)
             .then((response) => {
                 console.log(response);
             }, (error) => {
                 console.log(error);
             });
+        
+        axios
+            .delete(`/api/blogs/del/:` + itemId)
+            .then((res) => {
+                if (res.data)
+                {
+                    console.log(res);
+                }
+            })
+            .catch((err) => console.log(err));
 
         navigate("/");
     }
