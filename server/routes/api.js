@@ -28,28 +28,6 @@ router.post('/blogs/pst', (req, res, next) => {
     }
 });
 
-router.put(`/blogs/pt/:id`, (req, res, next) => {
-    blogs.findByIdAndUpdate(req.params.id, req.body.blogContent)
-         .then((data) => res.json(data))
-         .catch((err) => res.json({
-            error: `Error!`
-         }));
-
-    // const obj = blogs.findById(req.params._id)
-
-    // if (obj)
-    // {
-    //     blogs.findByIdAndUpdate(req.params._id, req.body)
-    //         .then((data) => res.json(data))
-    //         .catch(next);
-    // }
-    // else{
-    //     res.json({
-    //         error: `Data error!`
-    //     });
-    // }
-});
-
 //To work on
 router.delete('/blogs/del/:id', (req, res, next) => {
     blogs.findByIdAndDelete(req.params.id, req.body)

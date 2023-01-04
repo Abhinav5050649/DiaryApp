@@ -7,10 +7,6 @@ const blogSchema = new Schema({
         type: String, 
         required: true,
     },
-    blogDate: {
-        type: String,
-        required: true,
-    },
     blogContent: {
         type: String,
         required: true,

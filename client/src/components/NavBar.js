@@ -13,7 +13,6 @@ export const Navbar = () => {
                     <a className="nav-link active" href="/">Home <span className="sr-only">(current)</span></a>
                     <a className="nav-link" href="/formpage">New Blog Post</a>
                     <a className="nav-link" href="/delpage">Delete Blog Post(s)</a>
-                    <a className="nav-link" href="/updpage">Update Blog Post Content</a>
                 </div>
             </div>
         </nav>

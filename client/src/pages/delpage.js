@@ -34,12 +34,11 @@ export const Delpage = () => {
     return(
         <>
             <Navbar/>
-            <ul>
+            <ul className="list-group">
                 {data && data.length > 0 ? (
                     data.map((item) => {
                         return (
-                            <li key={item._id} onClick = {() => handleDelete(item._id)}>
-                                <label>{item.blogDate}</label>
+                            <li key={item._id} onClick = {() => handleDelete(item._id)} className="list-group-item">
                                 <p>{item.blogContent}</p>
                             </li>
                         );

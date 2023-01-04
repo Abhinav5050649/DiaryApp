@@ -12,7 +12,6 @@ export const Form = () => {
         axios.post(`/api/blogs/pst`, {
                 blogNumber: blogNumber,
                 blogContent: blogContent,
-                blogDate: Date().toString(),
             })
             .then((response) => {
                 console.log(response);
