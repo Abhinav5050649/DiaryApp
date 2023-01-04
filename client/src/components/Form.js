@@ -28,12 +28,12 @@ export const Form = () => {
             <div>
                 <form onSubmit={handleSubmit} method="post"> 
                     <div className="form-group">
-                        <label>Enter Blog Number: </label>
-                        <input type="text" className="form-control" value={blogNumber} onChange={(e) => setBlogNumber(e.target.value)} id="textFormControlInput1" placeholder="Enter Blog Number: " required={true}></input>
+                        <label>Enter Log Number: </label>
+                        <input type="text" className="form-control" value={blogNumber} onChange={(e) => setBlogNumber(e.target.value)} id="textFormControlInput1" placeholder="Enter Number: " required={true}></input>
                     </div>
                     <div className="form-group">
-                        <label>Enter blog content: </label>
-                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setBlogContent(e.target.value)} id="textFormControlInput1" placeholder="Enter Blog Content: " required={true}></input>
+                        <label>Enter Log content: </label>
+                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setBlogContent(e.target.value)} id="textFormControlInput1" placeholder="Enter Content: " required={true}></input>
                     </div>
                     
                     <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>

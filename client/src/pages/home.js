@@ -30,7 +30,7 @@ export const Home = () => {
                             );
                         })
                     ) : (
-                        <li>No Blog Posts left</li>
+                        <li>No Logs left</li>
                     )}
                 </ul>
             </div>

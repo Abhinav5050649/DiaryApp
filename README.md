@@ -2,4 +2,4 @@
 
 A MERN Application which serves as a Diary for user
 
-## Note: Work in Progress
+## Completed: Have made a simple diary of sorts. Enjoy!

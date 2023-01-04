@@ -44,7 +44,7 @@ export const Delpage = () => {
                         );
                     })
                 ) : (
-                    <li>No Blog Posts left</li>
+                    <li>No logs left</li>
                 )}
             </ul>
         </>
