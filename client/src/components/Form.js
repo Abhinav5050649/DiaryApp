@@ -7,12 +7,12 @@ export const Form = () => {
     const [blogContent, setBlogContent] = useState('')
     const navigate = useNavigate();
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         axios.post(`/api/blogs/pst`, {
-                blogNumber: blogNumber,
-                blogContent: blogContent,
-            })
+            blogNumber: blogNumber,
+            blogContent: blogContent,
+        })
             .then((response) => {
                 console.log(response);
                 setBlogNumber('');
@@ -20,26 +20,44 @@ export const Form = () => {
             }, (error) => {
                 console.log(error);
             });
-            
-            navigate("/");
+
+        navigate("/");
     }
 
-    return(
-            <div>
-                <form onSubmit={handleSubmit} method="post"> 
-                    <div className="form-group">
-                        <label>Enter Log Number: </label>
-                        <input type="text" className="form-control" value={blogNumber} onChange={(e) => setBlogNumber(e.target.value)} id="textFormControlInput1" placeholder="Enter Number: " required={true}></input>
+    return (
+        <div className="container">
+            <form onSubmit={handleSubmit} method="post" className="text-center">
+                <div className="form-group">
+                    <label>Enter Blog Number:</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={blogNumber}
+                        onChange={(e) => setBlogNumber(e.target.value)}
+                        placeholder="Enter Number:"
+                        required={true}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Enter Blog content:</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={blogContent}
+                        onChange={(e) => setBlogContent(e.target.value)}
+                        placeholder="Enter Content:"
+                        required={true}
+                    />
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
-                    <div className="form-group">
-                        <label>Enter Log content: </label>
-                        <input type="text" className="form-control" value={blogContent} onChange={(e) => setBlogContent(e.target.value)} id="textFormControlInput1" placeholder="Enter Content: " required={true}></input>
-                    </div>
-                    
-                    <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
     );
+
 }
 
 export default Form;
