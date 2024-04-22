@@ -7,32 +7,38 @@ export const Home = () => {
     const [data, setData] = useState([])
 
     React.useEffect(() => {
-        const getData = async() => {
+        const getData = async () => {
             const response = await axios.get(`/api/blogs/gt`)
-                setData(response.data)
-            }
-            getData()
+            setData(response.data)
+        }
+        getData()
     }, [])
-    
+
     //handle update part
-    return(
+    return (
         <>
-            <Navbar/>
-            <br/>
-            <div>
-                <ul className="list-group">
-                    {data && data.length > 0 ? (
-                        data.map((item) => {
-                            return (
-                                <li key={item._id} className="list-group-item">
-                                    <p>{item.blogContent}</p>
-                                </li>
-                            );
-                        })
-                    ) : (
-                        <li>No Logs left</li>
-                    )}
-                </ul>
+            <Navbar />
+            <br />
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-8">
+                        <ul className="list-group">
+                            {data && data.length > 0 ? (
+                                data.map((item) => {
+                                    return (
+                                        <li key={item._id} className="list-group-item">
+                                            <p>{item.blogContent}</p>
+                                        </li>
+                                    );
+                                })
+                            ) : (
+                                <div className="text-center">
+                                    <p>No Blogs Left!</p>
+                                </div>
+                            )}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </>
     )
