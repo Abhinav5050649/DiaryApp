@@ -2,10 +2,9 @@
 
 ## Here is what each line is doing
 
-1) A base image of alpine node image is being used
-2) /usr/src/app is being set as working directory
-3) COPY command being used to copy the package.json and package-lock.json files to the working directory
-4) npm install being done to install dependencies
-5) Now, directory contents are being copied to the image
-6) Port 3000 is being exposed
-7) "node index.js" command being executed using the docker CMD command
+1) A base image of alpine node image is being used. The image is tagged as "development" stage for clarity in multi-stage builds.
+2) Setting /react-app as the working directory inside the container.
+3) Copies package.json and package-lock.json (if present) from the host machine to /react-app directory in the container.
+4) Installs Node.js dependencies specified in package.json using npm install.
+5) Copies all files from the host machine to the /react-app directory in the container. This includes the source code of the application.
+6) Sets the default command to execute when the container starts. In this case, it's ["npm","start"], which typically starts the application defined in the package.json file.
